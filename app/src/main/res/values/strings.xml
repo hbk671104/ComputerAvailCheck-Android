@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ComputerAvailabilityCheck</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="button_query">Query</string>
+    <string name="building_name">Building </string>
+    <string name="windows_numbers">Windows</string>
+    <string name="macintosh_numbers">Macintosh</string>
+    <string name="linux_numbers">Linux</string>
+    <string name="normal_map">Normal</string>
+    <string name="satellite_map">Satellite</string>
+    <string name="hybrid_map">Hybrid</string>
+    <string name="refresh">Refresh</string>
+    <string name="building_map">Buildings Map</string>
+    <string name="room_details">Room Details</string>
+    <string name="room_number">Room Number</string>
+    <string name="about">About</string>
+    <string name="help_radio">1. Swipe from the left to select your preferred type of map view</string>
+    <string name="help_shake">2. Shake your device to refresh data (Only apply to building data now)</string>
+	<string name="help_infowindow">3. Click on the info window of each building to check out room details of computer availability</string>
+	<string name="tips">Tips</string>
+	<string-array name="action_bar_item">
+	    <item>Normal View</item>
+	    <item>Satellite View</item>
+	    <item>Hybrid View</item>
+	</string-array>
+	<string name="drawer_open">Open </string>
+	<string name="drawer_close">Close</string>
+
+</resources>

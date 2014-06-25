@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="/Users/BK/AndroidStudioProject/CheckCompAvail/app/build/intermediates/pre-dexed/debug/ksoap2-android-assembly-3.3.0-jar-with-dependencies-62f902a94f9edaa4618d6bc455882db388365f43.jar"
+        jar="/Users/BK/AndroidStudioProject/CheckCompAvail/app/libs/ksoap2-android-assembly-3.3.0-jar-with-dependencies.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="62681b8212ca52278feafec31775fd0cb096d99a"/>
+    <item
+        dex="/Users/BK/AndroidStudioProject/CheckCompAvail/app/build/intermediates/pre-dexed/debug/support-v4-19.1.0-2e33946fc2604895f5b8311a8f550d912c25103c.jar"
+        jar="/Applications/adt-bundle-mac-x86_64-20130522/sdk/extras/android/m2repository/com/android/support/support-v4/19.1.0/support-v4-19.1.0.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67"/>
+    <item
+        dex="/Users/BK/AndroidStudioProject/CheckCompAvail/app/build/intermediates/pre-dexed/debug/classes-aafe3e423e1f493a8ecd4bf12133df5a4a9e7a67.jar"
+        jar="/Users/BK/AndroidStudioProject/CheckCompAvail/build/intermediates/exploded-aar/com.google.android.gms/play-services/4.4.52/classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="3dfdf1db5ce5ea2999a5dcde8c8e650b02660059"/>
+
+</pre-dex-items>
