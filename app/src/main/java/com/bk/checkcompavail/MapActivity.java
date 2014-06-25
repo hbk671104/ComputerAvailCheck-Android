@@ -140,6 +140,8 @@ public class MapActivity extends FragmentActivity {
 		// Add markers
         addMarker();
 
+        Log.i("Test", "Hello!");
+
 	}
 
 	private void queryDataInSeparateThread() {
