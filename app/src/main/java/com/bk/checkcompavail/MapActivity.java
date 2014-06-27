@@ -46,7 +46,7 @@ public class MapActivity extends FragmentActivity {
 	final private int INDEX_LINUX = 7;
 	
 	// Don't forget to change this!!! When god damn building changes!!!
-	final private int NUMBER_OF_BUILDINGS = 36;
+	final private int NUMBER_OF_BUILDINGS = 37;
 	
 	final private int NUMBER_OF_USEFUL_ATTRIBUTES = 3;
 
@@ -95,7 +95,7 @@ public class MapActivity extends FragmentActivity {
 														new LatLng(40.800239, -77.864937),
 														new LatLng(40.801129, -77.85851),
 														new LatLng(40.798233, -77.868628),
-														//new LatLng(40.795435, -77.868651),
+														new LatLng(40.795435, -77.868651),
 														new LatLng(40.794757, -77.862641),
 														new LatLng(40.796962, -77.865757),
 														new LatLng(40.801108, -77.866744),
