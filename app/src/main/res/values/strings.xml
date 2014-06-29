@@ -19,14 +19,17 @@
     <string name="about">About</string>
     <string name="help_radio">1. Swipe from the left to select your preferred type of map view</string>
     <string name="help_shake">2. Shake your device to refresh data (Only apply to building data now)</string>
-	<string name="help_infowindow">3. Click on the info window of each building to check out room details of computer availability</string>
-	<string name="tips">Tips</string>
-	<string-array name="action_bar_item">
-	    <item>Normal View</item>
-	    <item>Satellite View</item>
-	    <item>Hybrid View</item>
-	</string-array>
-	<string name="drawer_open">Open </string>
-	<string name="drawer_close">Close</string>
+    <string name="help_infowindow">3. Click on the info window of each building to check out room details of computer availability</string>
+    <string name="tips">Tips</string>
+
+    <string-array name="action_bar_item">
+        <item>Normal View</item>
+        <item>Satellite View</item>
+        <item>Hybrid View</item>
+    </string-array>
+
+    <string name="drawer_open">Open </string>
+    <string name="drawer_close">Close</string>
+    <string name="title_activity_list_room">ListRoomActivity</string>
 
 </resources>

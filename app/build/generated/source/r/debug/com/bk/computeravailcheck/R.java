@@ -533,7 +533,8 @@ containing a value of this type.
         public static final int TextView24_02=0x7f070092;
         public static final int TextView24_03=0x7f070093;
         public static final int TextView24_04=0x7f070094;
-        public static final int about=0x7f070097;
+        public static final int about=0x7f070098;
+        public static final int action_settings=0x7f070097;
         public static final int book_now=0x7f070010;
         public static final int button_refresh=0x7f070095;
         public static final int buyButton=0x7f07000a;
@@ -576,18 +577,19 @@ containing a value of this type.
         public static final int splash_activity=0x7f030004;
     }
     public static final class menu {
-        public static final int main=0x7f0c0000;
+        public static final int list_room=0x7f0c0000;
+        public static final int main=0x7f0c0001;
     }
     public static final class string {
         public static final int about=0x7f0a0000;
         public static final int action_settings=0x7f0a0001;
         public static final int app_name=0x7f0a0002;
-        public static final int auth_client_needs_enabling_title=0x7f0a0030;
-        public static final int auth_client_needs_installation_title=0x7f0a0031;
-        public static final int auth_client_needs_update_title=0x7f0a0032;
-        public static final int auth_client_play_services_err_notification_msg=0x7f0a0033;
-        public static final int auth_client_requested_by_msg=0x7f0a0034;
-        public static final int auth_client_using_bad_version_title=0x7f0a0035;
+        public static final int auth_client_needs_enabling_title=0x7f0a0031;
+        public static final int auth_client_needs_installation_title=0x7f0a0032;
+        public static final int auth_client_needs_update_title=0x7f0a0033;
+        public static final int auth_client_play_services_err_notification_msg=0x7f0a0034;
+        public static final int auth_client_requested_by_msg=0x7f0a0035;
+        public static final int auth_client_using_bad_version_title=0x7f0a0036;
         public static final int building_map=0x7f0a0003;
         public static final int building_name=0x7f0a0004;
         public static final int button_query=0x7f0a0005;
@@ -631,8 +633,9 @@ containing a value of this type.
         public static final int room_number=0x7f0a002b;
         public static final int satellite_map=0x7f0a002c;
         public static final int tips=0x7f0a002d;
-        public static final int wallet_buy_button_place_holder=0x7f0a002e;
-        public static final int windows_numbers=0x7f0a002f;
+        public static final int title_activity_list_room=0x7f0a002e;
+        public static final int wallet_buy_button_place_holder=0x7f0a002f;
+        public static final int windows_numbers=0x7f0a0030;
     }
     public static final class style {
         /** 
