@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">ComputerAvailabilityCheck</string>
+    <string name="app_name">PSUCAC</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="button_query">Query</string>
@@ -23,9 +23,9 @@
     <string name="tips">Tips</string>
 
     <string-array name="action_bar_item">
-        <item>Normal View</item>
-        <item>Satellite View</item>
-        <item>Hybrid View</item>
+        <item>Normal</item>
+        <item>Satellite</item>
+        <item>Hybrid</item>
     </string-array>
 
     <string name="drawer_open">Open </string>

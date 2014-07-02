@@ -1,6 +1,7 @@
 package com.bk.checkcompavail;
 
 import android.app.AlertDialog;
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.SpinnerAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -139,6 +141,9 @@ public class MapActivity extends FragmentActivity {
 		
 		// Add markers
         addMarker();
+
+        // Add navigation bar
+        addNavigationBar();
 
 	}
 
@@ -276,6 +281,48 @@ public class MapActivity extends FragmentActivity {
      
 	}
 
+    /*
+     * Add navigation bar
+     */
+    public void addNavigationBar() {
+
+        ActionBar action_bar = getActionBar();
+        action_bar.setDisplayShowTitleEnabled(false);
+        action_bar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+        action_bar.show();
+
+        SpinnerAdapter spinner_adapter = ArrayAdapter.createFromResource(this,
+                R.array.action_bar_item,
+                android.R.layout.simple_spinner_dropdown_item);
+
+        // Set list navigation callbacks
+        action_bar.setListNavigationCallbacks(spinner_adapter, new ActionBar.OnNavigationListener() {
+
+            @Override
+            public boolean onNavigationItemSelected(int itemPosition, long itemId) {
+
+                switch (itemPosition) {
+                    case 0:
+                        map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+                        return true;
+
+                    case 1:
+                        map.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+                        return true;
+
+                    case 2:
+                        map.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+                        return true;
+
+                    default:
+                        return false;
+                    
+                }
+
+            }
+        });
+
+    }
 	
 	// Called whenever we call invalidateOptionsMenu() 
     @Override
