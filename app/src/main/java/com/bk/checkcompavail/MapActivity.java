@@ -316,7 +316,7 @@ public class MapActivity extends FragmentActivity {
 
                     default:
                         return false;
-                    
+
                 }
 
             }
