@@ -23,7 +23,7 @@
     <string name="tips">Tips</string>
 
     <string-array name="action_bar_item">
-        <item>Normal</item>
+        <item>Standard</item>
         <item>Satellite</item>
         <item>Hybrid</item>
     </string-array>
