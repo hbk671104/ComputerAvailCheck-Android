@@ -1,7 +1,7 @@
 package com.bk.checkcompavail;
 
-import android.app.AlertDialog;
 import android.app.ActionBar;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -16,8 +16,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.SpinnerAdapter;
 import android.widget.ListView;
+import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
 import com.bk.computeravailcheck.R;
@@ -25,6 +25,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
@@ -48,9 +49,9 @@ public class MapActivity extends FragmentActivity {
 	final private int INDEX_LINUX = 7;
 	
 	// Don't forget to change this!!! When god damn building changes!!!
-	final private int NUMBER_OF_BUILDINGS = 37;
-	
-	final private int NUMBER_OF_USEFUL_ATTRIBUTES = 3;
+    final private int NUMBER_OF_BUILDINGS = 38;
+
+    final private int NUMBER_OF_USEFUL_ATTRIBUTES = 3;
 
     // opp code
     final private ArrayList<String> OPP_CODE = new ArrayList<String>();
@@ -98,7 +99,8 @@ public class MapActivity extends FragmentActivity {
 														new LatLng(40.801129, -77.85851),
 														new LatLng(40.798233, -77.868628),
 														new LatLng(40.795435, -77.868651),
-														new LatLng(40.794757, -77.862641),
+            new LatLng(40.799532, -77.855962),
+            new LatLng(40.794757, -77.862641),
 														new LatLng(40.796962, -77.865757),
 														new LatLng(40.801108, -77.866744),
 														new LatLng(40.79323,  -77.866857),
@@ -170,9 +172,11 @@ public class MapActivity extends FragmentActivity {
 	 * Add all the map elements, called in OnCreate()
 	 */
 	public void addGoogleMap() {
-		
-		// Instantiate map and initial_position
-		//map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
+
+        MapsInitializer.initialize(this);
+
+        // Instantiate map and initial_position
+        //map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
 		map = ((SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
 		initial_position = CameraPosition.builder()
 											.target(CENTER) 
