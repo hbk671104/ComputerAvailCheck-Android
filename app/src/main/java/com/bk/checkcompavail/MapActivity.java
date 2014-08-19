@@ -1,12 +1,12 @@
 package com.bk.checkcompavail;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
@@ -24,7 +24,7 @@ import com.bk.computeravailcheck.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener;
-import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
@@ -42,7 +42,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.Semaphore;
 
-public class MapActivity extends FragmentActivity {
+public class MapActivity extends Activity {
 
 	final private int INDEX_WINDOWS = 5;
 	final private int INDEX_MACINTOSH = 6;
@@ -131,9 +131,9 @@ public class MapActivity extends FragmentActivity {
 		
 		// Instantiate the semaphore
 		lock = new Semaphore(1);
-		
-		// Add Google Map on the MainActivity
-		addGoogleMap();
+
+        // Add Google Map on the MainActivity
+        addGoogleMap();
 
 		// Query data in a separate thread 
 		queryDataInSeparateThread();
@@ -176,9 +176,9 @@ public class MapActivity extends FragmentActivity {
         MapsInitializer.initialize(this);
 
         // Instantiate map and initial_position
-        //map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
-		map = ((SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
-		initial_position = CameraPosition.builder()
+        map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
+        //map = ((SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
+        initial_position = CameraPosition.builder()
 											.target(CENTER) 
 											.zoom(15)
 											.bearing(0)
