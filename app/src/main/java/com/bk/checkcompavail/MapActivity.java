@@ -86,7 +86,7 @@ public class MapActivity extends Activity {
 														new LatLng(40.793742, -77.862985),
             //new LatLng(40.796982, -77.861375),
             new LatLng(40.796544, -77.859884),
-														new LatLng(40.794668, -77.865838),
+            new LatLng(40.794668, -77.865838),
 														new LatLng(40.798136, -77.861272),
 														new LatLng(40.793673, -77.868112),
 														new LatLng(40.807461, -77.866494),
