@@ -49,7 +49,7 @@ public class MapActivity extends Activity {
 	final private int INDEX_LINUX = 7;
 	
 	// Don't forget to change this!!! When god damn building changes!!!
-    final private int NUMBER_OF_BUILDINGS = 38;
+    final private int NUMBER_OF_BUILDINGS = 37;
 
     final private int NUMBER_OF_USEFUL_ATTRIBUTES = 3;
 
@@ -84,8 +84,8 @@ public class MapActivity extends Activity {
 														new LatLng(40.799691,-77.869528),
 														new LatLng(40.80483,  -77.863994),
 														new LatLng(40.793742, -77.862985),
-														new LatLng(40.796982, -77.861375),
-														new LatLng(40.796544, -77.859884),
+            //new LatLng(40.796982, -77.861375),
+            new LatLng(40.796544, -77.859884),
 														new LatLng(40.794668, -77.865838),
 														new LatLng(40.798136, -77.861272),
 														new LatLng(40.793673, -77.868112),
@@ -101,7 +101,7 @@ public class MapActivity extends Activity {
 														new LatLng(40.795435, -77.868651),
             new LatLng(40.799532, -77.855962),
             new LatLng(40.794757, -77.862641),
-														new LatLng(40.796962, -77.865757),
+            new LatLng(40.796962, -77.865757),
 														new LatLng(40.801108, -77.866744),
 														new LatLng(40.79323,  -77.866857),
 														//new LatLng(40.795715, -77.867405),
