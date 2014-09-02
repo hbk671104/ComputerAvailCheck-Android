@@ -73,21 +73,21 @@ public class MapActivity extends Activity {
 														new LatLng(40.799136, -77.861684),
 														new LatLng(40.809093, -77.855406),
 														new LatLng(40.803926, -77.865199),
-														new LatLng(40.799135,-77.86838),
-														new LatLng(40.798325, -77.867731),
+            new LatLng(40.799135, -77.86838),
+            new LatLng(40.798325, -77.867731),
 														new LatLng(40.798116, -77.862798),
 														new LatLng(40.794266, -77.865405),
 														new LatLng(40.804889, -77.856182),
 														new LatLng(40.792146, -77.87088),
 														new LatLng(40.801011, -77.863638),
 														new LatLng(40.806479, -77.862265),
-														new LatLng(40.799691,-77.869528),
-														new LatLng(40.80483,  -77.863994),
-														new LatLng(40.793742, -77.862985),
-            //new LatLng(40.796982, -77.861375),
+            new LatLng(40.799691, -77.869528),
+            new LatLng(40.80483, -77.863994),
+            new LatLng(40.793742, -77.862985),
+            new LatLng(40.796982, -77.861375),
             new LatLng(40.796544, -77.859884),
             new LatLng(40.794668, -77.865838),
-														new LatLng(40.798136, -77.861272),
+            new LatLng(40.798136, -77.861272),
 														new LatLng(40.793673, -77.868112),
 														new LatLng(40.807461, -77.866494),
 														new LatLng(40.798144, -77.870666),
@@ -102,25 +102,30 @@ public class MapActivity extends Activity {
             new LatLng(40.799532, -77.855962),
             new LatLng(40.794757, -77.862641),
             new LatLng(40.796962, -77.865757),
-														new LatLng(40.801108, -77.866744),
-														new LatLng(40.79323,  -77.866857),
-														//new LatLng(40.795715, -77.867405),
-														new LatLng(40.80294,  -77.866079),
-														new LatLng(40.797546, -77.866610),
+            new LatLng(40.801108, -77.866744),
+            new LatLng(40.79323, -77.866857),
+            new LatLng(40.795715, -77.867405),
+            new LatLng(40.80294, -77.866079),
+            new LatLng(40.797546, -77.866610),
 														new LatLng(40.795967, -77.864255)};
-	
-	private String[][] query_result = new String[NUMBER_OF_BUILDINGS][NUMBER_OF_USEFUL_ATTRIBUTES]; 
-	private Semaphore lock;
+
+    private String[][] query_result;
+    private Semaphore lock;
 	
 	// Map Object
 	private GoogleMap map;
 	private CameraPosition initial_position;
-	private Marker[] marker_array = new Marker[NUMBER_OF_BUILDINGS];
-	
-	// Drawer Object
+    private ArrayList<Marker> marker_array = new ArrayList<Marker>();
+
+    // Drawer Object
 	private DrawerLayout drawer_layout;
     private ListView drawer_list;
     private ActionBarDrawerToggle drawer_toggle;
+
+    // Pools
+    protected ArrayList<MarkerOptions> markerOptionPool = new ArrayList<MarkerOptions>();
+    protected ArrayList<MarkerOptions> markerOptionArray = new ArrayList<MarkerOptions>();
+    protected ArrayList<String> buildingNamePool = new ArrayList<String>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -140,9 +145,10 @@ public class MapActivity extends Activity {
 
         // Add drawer
         addDrawer();
-		
-		// Add markers
-        addMarker();
+
+        // Init Pools
+        initBuildingNamePool();
+        initMarkerPool();
 
         // Add navigation bar
         addNavigationBar();
@@ -248,10 +254,10 @@ public class MapActivity extends Activity {
 				drawer_layout.closeDrawer(drawer_list);
 
                 // Animate the camera position to the corresponding marker
-                map.animateCamera(CameraUpdateFactory.newLatLng(marker_array[position].getPosition()));
+                map.animateCamera(CameraUpdateFactory.newLatLng(marker_array.get(position).getPosition()));
 
                 // Show the info window
-                marker_array[position].showInfoWindow();
+                marker_array.get(position).showInfoWindow();
 
 			}
 			
@@ -410,9 +416,9 @@ public class MapActivity extends Activity {
 	        Log.i("Background", "doInBackground");
 	        
 	        // Doing the query in the background
-	        queryBuildingResult(query_result);
-	        
-	        // Release the permit after the query result has been all set to the String array
+            queryBuildingResult();
+
+            // Release the permit after the query result has been all set to the String array
 	        lock.release();
 	        
 	        return null;
@@ -422,18 +428,20 @@ public class MapActivity extends Activity {
 	    @Override
 	    protected void onPostExecute(Void result) {
 
-	        Log.i("PostExecute", "onPostExecute"); 
-	        
-	    }
+            Log.i("PostExecute", "onPostExecute");
+            initMarker();
+            addMarker();
+
+        }
 	    
 	}
 
 	/*
 	 * Query building result from the web service 
 	 */
-	public void queryBuildingResult(String[][] query) {
-		
-		// Web Service namespace 
+    public void queryBuildingResult() {
+
+        // Web Service namespace
 		String namespace = "https://clc.its.psu.edu/ComputerAvailabilityWS/";
 		String method_name = "Buildings";
 		
@@ -480,7 +488,9 @@ public class MapActivity extends Activity {
 		
 		// Filter out the building name, available Windows, available Mac and available Linux 
 		if (document_element != null) {
-			
+
+            query_result = new String[document_element.getPropertyCount()][NUMBER_OF_USEFUL_ATTRIBUTES];
+
 			for (int i = 0; i < document_element.getPropertyCount(); i++) {
 
                 // Opp code
@@ -496,13 +506,13 @@ public class MapActivity extends Activity {
                 BUILDING_TOTAL_COMPUTERS.add(((SoapObject) document_element.getProperty(i)).getProperty(3).toString());
 
 				// Windows 
-				query[i][0] = ((SoapObject) document_element.getProperty(i)).getProperty(INDEX_WINDOWS).toString();
+                query_result[i][0] = ((SoapObject) document_element.getProperty(i)).getProperty(INDEX_WINDOWS).toString();
 
 				// Macintosh
-				query[i][1] = ((SoapObject) document_element.getProperty(i)).getProperty(INDEX_MACINTOSH).toString();
+                query_result[i][1] = ((SoapObject) document_element.getProperty(i)).getProperty(INDEX_MACINTOSH).toString();
 
 				// Linux
-				query[i][2] = ((SoapObject) document_element.getProperty(i)).getProperty(INDEX_LINUX).toString();
+                query_result[i][2] = ((SoapObject) document_element.getProperty(i)).getProperty(INDEX_LINUX).toString();
 
 			}
 			
@@ -510,19 +520,105 @@ public class MapActivity extends Activity {
 		
 	}
 
+    /*
+     * Init Marker Pool
+     */
+    public void initMarkerPool() {
+
+        for (int i = 0; i < BUILDINGS_LOC.length; i++) {
+
+            MarkerOptions tempOption = new MarkerOptions();
+            tempOption.position(BUILDINGS_LOC[i]);
+            markerOptionPool.add(tempOption);
+
+        }
+
+    }
+
+    /*
+     * Init Building Name Pool
+     */
+    public void initBuildingNamePool() {
+
+        buildingNamePool.add("AgSci");
+        buildingNamePool.add("Boucke");
+        buildingNamePool.add("Bryce Jordan Center");
+        buildingNamePool.add("Business Bldg");
+        buildingNamePool.add("Cedar");
+        buildingNamePool.add("Chambers");
+        buildingNamePool.add("Davey Lab");
+        buildingNamePool.add("Deike");
+        buildingNamePool.add("EAL");
+        buildingNamePool.add("EES");
+        buildingNamePool.add("Ferguson");
+        buildingNamePool.add("Findlay");
+        buildingNamePool.add("Ford Building");
+        buildingNamePool.add("Forest Resources");
+        buildingNamePool.add("Hammond");
+        buildingNamePool.add("Henderson");
+        buildingNamePool.add("HHDev");
+        buildingNamePool.add("Hosler");
+        buildingNamePool.add("HUB");
+        buildingNamePool.add("IST");
+        buildingNamePool.add("Katz");
+        buildingNamePool.add("Keller");
+        buildingNamePool.add("LifeSci");
+        buildingNamePool.add("Mateer");
+        buildingNamePool.add("Osmond");
+        buildingNamePool.add("Paterno");
+        buildingNamePool.add("Patterson");
+        buildingNamePool.add("Pollock");
+        buildingNamePool.add("Rackley");
+        buildingNamePool.add("RecHall");
+        buildingNamePool.add("Redifer");
+        buildingNamePool.add("Sackett");
+        buildingNamePool.add("Sparks");
+        buildingNamePool.add("Stuckeman");
+        buildingNamePool.add("Walker");
+        buildingNamePool.add("Waring");
+        buildingNamePool.add("Warnock");
+        buildingNamePool.add("West Pattee");
+        buildingNamePool.add("Willard");
+
+    }
+
+    public void initMarker() {
+
+        for (int i = 0; i < NAME_OF_EACH_BUILDING.size(); i++) {
+
+            String name = NAME_OF_EACH_BUILDING.get(i);
+
+            for (int j = 0; j < buildingNamePool.size(); j++) {
+
+                if (name.equals(buildingNamePool.get(j))) {
+
+                    // If matches, add marker to the array
+                    markerOptionArray.add(markerOptionPool.get(j));
+                    break;
+
+                }
+
+            }
+            
+        }
+
+    }
+
 	/*
 	 * add the markers of all the buildings 
 	 */
 	public void addMarker() {
-		
-		for (int i = 0; i < marker_array.length; i++) {
-			marker_array[i] = map.addMarker(new MarkerOptions()
-								.position(BUILDINGS_LOC[i])
-								.title(NAME_OF_EACH_BUILDING.get(i))
-								.snippet("Win:" + query_result[i][0]
-										+ " Mac:"   + query_result[i][1]
-										+ " Linux:" + query_result[i][2])
-			);
+
+        for (int i = 0; i < markerOptionArray.size(); i++) {
+
+            MarkerOptions option = markerOptionArray.get(i);
+            option.title(NAME_OF_EACH_BUILDING.get(i));
+            option.snippet("Win:" + query_result[i][0]
+                    + " Mac:" + query_result[i][1]
+                    + " Linux:" + query_result[i][2]);
+
+            marker_array.add(map.addMarker(option));
+
 		}
 		
 		// Set marker color
@@ -539,16 +635,16 @@ public class MapActivity extends Activity {
 	 * If a building is very crowded, set color the marker to RED
 	 */
 	public void setMarkerColor() {
-		
-		for (int i = 0; i < marker_array.length; i++) {
-			int result_value = isCrowded(Integer.parseInt(BUILDING_TOTAL_COMPUTERS.get(i)), query_result[i][0], query_result[i][1], query_result[i][2]);
+
+        for (int i = 0; i < marker_array.size(); i++) {
+            int result_value = isCrowded(Integer.parseInt(BUILDING_TOTAL_COMPUTERS.get(i)), query_result[i][0], query_result[i][1], query_result[i][2]);
 			if (result_value == 0)
-				marker_array[i].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.computers_green));
-			else if (result_value == 1)
-				marker_array[i].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.computers_yellow));
-			else
-				marker_array[i].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.computers_red));
-		}
+                marker_array.get(i).setIcon(BitmapDescriptorFactory.fromResource(R.drawable.computers_green));
+            else if (result_value == 1)
+                marker_array.get(i).setIcon(BitmapDescriptorFactory.fromResource(R.drawable.computers_yellow));
+            else
+                marker_array.get(i).setIcon(BitmapDescriptorFactory.fromResource(R.drawable.computers_red));
+        }
 		
 	}
 
