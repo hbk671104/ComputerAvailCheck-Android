@@ -225,23 +225,23 @@ public class RoomActivity extends Activity {
 	public void queryRoomResult(String opp_code) {
 		
 		// Web Service namespace 
-		String namespace = "https://clc.its.psu.edu/ComputerAvailabilityWS/";
-		String method_name = "Rooms";
+        String namespace = "https://clc.its.psu.edu/ComputerAvailabilityWS/Service.asmx";
+        String method_name = "Rooms";
 		// Web Service endpoint, just like a normal URL, something you can type in a web browser
 		String endpoint = "https://clc.its.psu.edu/ComputerAvailabilityWS/Service.asmx";
 		// Soap Action 
-		String soapAction = "https://clc.its.psu.edu/ComputerAvailabilityWS/Rooms";
-		
-		// Instantiate a soap object
+        String soapAction = "https://clc.its.psu.edu/ComputerAvailabilityWS/Service.asmx/Rooms";
+
+        // Instantiate a soap object
 		SoapObject soap_out = new SoapObject(namespace, method_name); 
 		
 		// Add parameter
 		Log.i("OppCode", opp_code);
 		soap_out.addProperty("OppCode" , opp_code);
-		
-		// Add soap envelop
-		SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-		envelope.bodyOut = soap_out;
+
+        // Add soap envelop
+        SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER12);
+        envelope.bodyOut = soap_out;
 		envelope.dotNet = true;
 		
 		// Instantiate a Transport object and call Web Service

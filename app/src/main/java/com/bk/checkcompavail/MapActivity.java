@@ -86,6 +86,7 @@ public class MapActivity extends Activity {
             new LatLng(40.793742, -77.862985),
             new LatLng(40.796982, -77.861375),
             new LatLng(40.796544, -77.859884),
+            new LatLng(40.794306, -77.863671),
             new LatLng(40.794668, -77.865838),
             new LatLng(40.798136, -77.861272),
 														new LatLng(40.793673, -77.868112),
@@ -201,8 +202,8 @@ public class MapActivity extends Activity {
 			
 			@Override
 			public void onInfoWindowClick(Marker marker) {
-				
-				// get the marker index of the marker
+
+                // get the marker index of the marker
 				int marker_index = Integer.parseInt(marker.getId().substring(1));
 				
 				// Instantiate an Intent object that helps us jump to RoomActivity
@@ -442,24 +443,24 @@ public class MapActivity extends Activity {
     public void queryBuildingResult() {
 
         // Web Service namespace
-		String namespace = "https://clc.its.psu.edu/ComputerAvailabilityWS/";
-		String method_name = "Buildings";
+        String namespace = "https://clc.its.psu.edu/ComputerAvailabilityWS/Service.asmx";
+        String method_name = "Buildings";
 		
 		// Web Service endpoint, just like a normal URL, something you can type in a web browser
 		String endpoint = "https://clc.its.psu.edu/ComputerAvailabilityWS/Service.asmx";
 		
 		// Soap Action 
-		String soapAction = "https://clc.its.psu.edu/ComputerAvailabilityWS/Buildings";
-		
-		// Instantiate a soap object
+        String soapAction = "https://clc.its.psu.edu/ComputerAvailabilityWS/Service.asmx/Buildings";
+
+        // Instantiate a soap object
 		SoapObject soap_out = new SoapObject(namespace, method_name); 
 		
 		// Add parameter
 		soap_out.addProperty("Campus" , "UP");
 		
 		// Add soap envelop
-		SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-		envelope.bodyOut = soap_out;
+        SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER12);
+        envelope.bodyOut = soap_out;
 		envelope.dotNet = true;
 		
 		// Instantiate a Transport object and call Web Service
@@ -557,6 +558,7 @@ public class MapActivity extends Activity {
         buildingNamePool.add("Hammond");
         buildingNamePool.add("Henderson");
         buildingNamePool.add("HHDev");
+        buildingNamePool.add("Hintz");
         buildingNamePool.add("Hosler");
         buildingNamePool.add("HUB");
         buildingNamePool.add("IST");
@@ -599,7 +601,7 @@ public class MapActivity extends Activity {
                 }
 
             }
-            
+
         }
 
     }

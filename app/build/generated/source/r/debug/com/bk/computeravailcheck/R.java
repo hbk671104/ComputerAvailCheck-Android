@@ -584,12 +584,12 @@ containing a value of this type.
         public static final int about=0x7f0a0000;
         public static final int action_settings=0x7f0a0001;
         public static final int app_name=0x7f0a0002;
-        public static final int auth_client_needs_enabling_title=0x7f0a0031;
-        public static final int auth_client_needs_installation_title=0x7f0a0032;
-        public static final int auth_client_needs_update_title=0x7f0a0033;
-        public static final int auth_client_play_services_err_notification_msg=0x7f0a0034;
-        public static final int auth_client_requested_by_msg=0x7f0a0035;
-        public static final int auth_client_using_bad_version_title=0x7f0a0036;
+        public static final int auth_client_needs_enabling_title=0x7f0a0032;
+        public static final int auth_client_needs_installation_title=0x7f0a0033;
+        public static final int auth_client_needs_update_title=0x7f0a0034;
+        public static final int auth_client_play_services_err_notification_msg=0x7f0a0035;
+        public static final int auth_client_requested_by_msg=0x7f0a0036;
+        public static final int auth_client_using_bad_version_title=0x7f0a0037;
         public static final int building_map=0x7f0a0003;
         public static final int building_name=0x7f0a0004;
         public static final int button_query=0x7f0a0005;
@@ -628,14 +628,15 @@ containing a value of this type.
         public static final int linux_numbers=0x7f0a0026;
         public static final int macintosh_numbers=0x7f0a0027;
         public static final int normal_map=0x7f0a0028;
-        public static final int refresh=0x7f0a0029;
-        public static final int room_details=0x7f0a002a;
-        public static final int room_number=0x7f0a002b;
-        public static final int satellite_map=0x7f0a002c;
-        public static final int tips=0x7f0a002d;
-        public static final int title_activity_list_room=0x7f0a002e;
-        public static final int wallet_buy_button_place_holder=0x7f0a002f;
-        public static final int windows_numbers=0x7f0a0030;
+        public static final int pre_release_do_not_ship=0x7f0a0029;
+        public static final int refresh=0x7f0a002a;
+        public static final int room_details=0x7f0a002b;
+        public static final int room_number=0x7f0a002c;
+        public static final int satellite_map=0x7f0a002d;
+        public static final int tips=0x7f0a002e;
+        public static final int title_activity_list_room=0x7f0a002f;
+        public static final int wallet_buy_button_place_holder=0x7f0a0030;
+        public static final int windows_numbers=0x7f0a0031;
     }
     public static final class style {
         /** 
@@ -652,10 +653,11 @@ containing a value of this type.
         public static final int AppTheme=0x7f0b0001;
         public static final int BKTheme=0x7f0b0002;
         public static final int CustomAlertDialogStyle=0x7f0b0003;
-        public static final int WalletFragmentDefaultButtonTextAppearance=0x7f0b0004;
-        public static final int WalletFragmentDefaultDetailsHeaderTextAppearance=0x7f0b0005;
-        public static final int WalletFragmentDefaultDetailsTextAppearance=0x7f0b0006;
-        public static final int WalletFragmentDefaultStyle=0x7f0b0007;
+        public static final int Theme_IAPTheme=0x7f0b0004;
+        public static final int WalletFragmentDefaultButtonTextAppearance=0x7f0b0005;
+        public static final int WalletFragmentDefaultDetailsHeaderTextAppearance=0x7f0b0006;
+        public static final int WalletFragmentDefaultDetailsTextAppearance=0x7f0b0007;
+        public static final int WalletFragmentDefaultStyle=0x7f0b0008;
     }
     public static final class styleable {
         /** Attributes that can be used with a AdsAttrs.
