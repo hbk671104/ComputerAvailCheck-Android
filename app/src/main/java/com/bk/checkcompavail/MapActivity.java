@@ -49,7 +49,7 @@ public class MapActivity extends Activity {
 	final private int INDEX_LINUX = 7;
 	
 	// Don't forget to change this!!! When god damn building changes!!!
-    final private int NUMBER_OF_BUILDINGS = 37;
+    final private int NUMBER_OF_BUILDINGS = 41;
 
     final private int NUMBER_OF_USEFUL_ATTRIBUTES = 3;
 
@@ -71,7 +71,8 @@ public class MapActivity extends Activity {
 	// The geo-location data of all the buildings (latitude and longitude)
 	final private LatLng[] BUILDINGS_LOC = new LatLng[] {new LatLng(40.803636, -77.863764),
 														new LatLng(40.799136, -77.861684),
-														new LatLng(40.809093, -77.855406),
+            new LatLng(40.801270, -77.854822),
+            new LatLng(40.809093, -77.855406),
 														new LatLng(40.803926, -77.865199),
             new LatLng(40.799135, -77.86838),
             new LatLng(40.798325, -77.867731),
@@ -97,7 +98,8 @@ public class MapActivity extends Activity {
 														new LatLng(40.798607, -77.862223),
 														new LatLng(40.798493, -77.865452),
 														new LatLng(40.800239, -77.864937),
-														new LatLng(40.801129, -77.85851),
+            new LatLng(40.831589, -77.844789),
+            new LatLng(40.801129, -77.85851),
 														new LatLng(40.798233, -77.868628),
 														new LatLng(40.795435, -77.868651),
             new LatLng(40.799532, -77.855962),
@@ -543,6 +545,7 @@ public class MapActivity extends Activity {
 
         buildingNamePool.add("AgSci");
         buildingNamePool.add("Boucke");
+        buildingNamePool.add("Brill Hall");
         buildingNamePool.add("Bryce Jordan Center");
         buildingNamePool.add("Business Bldg");
         buildingNamePool.add("Cedar");
@@ -569,6 +572,7 @@ public class MapActivity extends Activity {
         buildingNamePool.add("Osmond");
         buildingNamePool.add("Paterno");
         buildingNamePool.add("Patterson");
+        buildingNamePool.add("Penn Stater Hotel");
         buildingNamePool.add("Pollock");
         buildingNamePool.add("Rackley");
         buildingNamePool.add("RecHall");
