@@ -11,7 +11,7 @@ import com.bk.computeravailcheck.R;
 public class SplashActivity extends Activity {
 	
 	// Splash screen timer
-    private static int SPLASH_TIME_OUT = 1000;
+    private static int SPLASH_TIME_OUT = 1500;
 
     private ProgressDialog pd;
 
@@ -43,10 +43,10 @@ public class SplashActivity extends Activity {
                 startActivity(i);
 
                 // Opening transition animation
-        	    overridePendingTransition(R.animator.activity_open_translate,
-                        R.animator.activity_close_scale);
-        			
-        		// close this activity
+                //overridePendingTransition(R.animator.activity_open_translate,
+                // R.animator.activity_close_scale);
+
+                // close this activity
                 finish();
 
                 // Dismiss the progress dialog

@@ -7,9 +7,14 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,7 +27,12 @@ import org.ksoap2.transport.HttpTransportSE;
 import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.Semaphore;
+
+import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
+import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 
 public class RoomActivity extends Activity {
 	
@@ -30,103 +40,223 @@ public class RoomActivity extends Activity {
 	final private int INDEX_WINDOWS = 4;
 	final private int INDEX_MACINTOSH = 5;
 	final private int INDEX_LINUX = 6;
-	
-	private String opp_code, number_of_rooms, building_name;
-	
-	private Button refresh_button;
+
+    private String oppCode, buildingName;
+
 	private Semaphore lock;
-	private TextView[][] text_view;
-	
+    private List<String> roomNumber, availWin, availMac, availLinux;
+    private List<ListItem> itemList;
+    private ItemListAdapter adapter;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.room_activity);
-		
-		// Opening transition animation
-		overridePendingTransition(R.animator.activity_open_translate, R.animator.activity_close_scale);
-		
+        setContentView(R.layout.room_listview_activity);
+
+        // Opening transition animation
+        //overridePendingTransition(R.animator.activity_open_translate, R.animator.activity_close_scale);
+
 		/* 
 		 * Create an intent that carries the data transfered 
 		 * from MapActivity and retrieve the oppcode
 		 */
 		Intent intent = getIntent();
-		opp_code = intent.getStringExtra("OppCode");
-		number_of_rooms = intent.getStringExtra("NumberOfRooms");
-		building_name = intent.getStringExtra("BuildingName");
-		
-		// Set the activity title
-		setTitle(building_name);
+        oppCode = intent.getStringExtra("OppCode");
+        buildingName = intent.getStringExtra("BuildingName");
 
-		// Instantiate the TextView 2D array
-		text_view = new TextView[Integer.parseInt(number_of_rooms)][4];
-		for (int i = 0; i < text_view.length; i++) {
-			for (int j = 0; j < text_view[0].length; j++) {
-				String text_view_id = "";
-				switch(i) {
-					case 0: text_view_id += "TextView02_"; break;
-					case 1: text_view_id += "TextView03_"; break;
-					case 2: text_view_id += "TextView04_"; break;
-					case 3: text_view_id += "TextView05_"; break;
-					case 4: text_view_id += "TextView06_"; break;
-					case 5: text_view_id += "TextView07_"; break;
-					case 6: text_view_id += "TextView08_"; break;
-					case 7: text_view_id += "TextView09_"; break;
-					case 8: text_view_id += "TextView10_"; break;
-					case 9: text_view_id += "TextView11_"; break;
-					case 10: text_view_id += "TextView12_"; break;
-					case 11: text_view_id += "TextView13_"; break;
-					case 12: text_view_id += "TextView14_"; break;
-					case 13: text_view_id += "TextView15_"; break;
-					case 14: text_view_id += "TextView16_"; break;
-					case 15: text_view_id += "TextView17_"; break;
-					case 16: text_view_id += "TextView18_"; break;
-					case 17: text_view_id += "TextView19_"; break;
-					case 18: text_view_id += "TextView20_"; break;
-					case 19: text_view_id += "TextView21_"; break;
-					case 20: text_view_id += "TextView22_"; break;
-					case 21: text_view_id += "TextView23_"; break;
-					case 22: text_view_id += "TextView24_"; break;
-				}
-				
-				switch(j) {
-					case 0: text_view_id += "01"; break;
-					case 1: text_view_id += "02"; break;
-					case 2: text_view_id += "03"; break;
-					case 3: text_view_id += "04"; break;
-				}
+        // Set the activity title
+        setTitle(buildingName);
 
-				// Get resource id based on text view id
-				int resource_id = getResources().getIdentifier(text_view_id, "id", getPackageName());
-				text_view[i][j] = (TextView) findViewById(resource_id);
-
-			}
-		}
-		
 		// Instantiate the Semaphore object
 		lock = new Semaphore(1);
-		
-		// Instantiate the button and set the onclick listener
-		refresh_button = (Button) findViewById(R.id.button_refresh);
-		refresh_button.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				
-				// Query data in a separate thread
-				queryDataInSeparateThread();	
-				
-				Toast.makeText(RoomActivity.this, "Refresh Successfully!", Toast.LENGTH_SHORT).show();
-			
-			}
-		});
-		
-		// Query data in a separate thread
-		queryDataInSeparateThread();	
-	
+
+        // Query data in a separate thread
+        queryData();
+
+        // Populate things
+        populateItemList();
+        populateListView();
+
+        // Pull to refresh
+        final SwipeRefreshLayout swipeLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
+        swipeLayout.setColorSchemeResources(
+                android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light);
+        swipeLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+
+            @Override
+            public void onRefresh() {
+
+                // Query data in a separate thread
+                queryData();
+
+                // Populate things
+                populateItemList();
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        adapter.notifyDataSetChanged();
+                    }
+                });
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        swipeLayout.setRefreshing(false);
+                        Toast.makeText(getApplicationContext(), "Success:)", Toast.LENGTH_SHORT).show();
+                    }
+                }, 1000);
+
+            }
+
+        });
+
 	}
 
-	protected void queryDataInSeparateThread() {
+    private void populateItemList() {
+
+        // Instantiate itemlist
+        itemList = new ArrayList<ListItem>();
+
+        for (int i = 0; i < roomNumber.size(); i++) {
+
+            String room = roomNumber.get(i);
+            String win = availWin.get(i);
+
+            itemList.add(new ListItem(room, win));
+
+        }
+
+        for (int i = 0; i < roomNumber.size(); i++) {
+
+            String room = roomNumber.get(i);
+            String mac = availMac.get(i);
+
+            itemList.add(new ListItem(room, mac));
+
+        }
+
+        for (int i = 0; i < roomNumber.size(); i++) {
+
+            String room = roomNumber.get(i);
+            String linux = availLinux.get(i);
+
+            itemList.add(new ListItem(room, linux));
+
+        }
+
+    }
+
+    private void populateListView() {
+
+        adapter = new ItemListAdapter(this, itemList);
+        StickyListHeadersListView listView = (StickyListHeadersListView) findViewById(R.id.listView);
+        listView.setAdapter(adapter);
+
+    }
+
+    private class ItemListAdapter extends BaseAdapter implements StickyListHeadersAdapter {
+
+        private List<ListItem> listItem;
+        private LayoutInflater inflater;
+        private int size;
+
+        public ItemListAdapter(Context context, List<ListItem> objects) {
+            listItem = objects;
+            inflater = LayoutInflater.from(context);
+            size = listItem.size() / 3;
+        }
+
+        @Override
+        public int getCount() {
+            return listItem.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return listItem.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+
+            View itemView = convertView;
+            if (itemView == null)
+                itemView = inflater.inflate(R.layout.item_view, parent, false);
+
+            // Current item
+            ListItem item = itemList.get(position);
+
+            TextView room = (TextView) itemView.findViewById(R.id.textViewRoomNumber);
+            room.setText(item.getRoomNumber());
+
+            TextView avail = (TextView) itemView.findViewById(R.id.textViewAvail);
+            avail.setText(item.getAvailables());
+
+            return itemView;
+
+        }
+
+        @Override
+        public View getHeaderView(int position, View convertView, ViewGroup parent) {
+
+            View headerView = convertView;
+            if (headerView == null)
+                headerView = inflater.inflate(R.layout.header_view, parent, false);
+
+            ImageView imageView = (ImageView) headerView.findViewById(R.id.imageView);
+            if (position >= 0 && position < size) {
+                imageView.setImageResource(R.drawable.systems_windows_8_icon_128);
+            } else if (position >= size && position < size * 2) {
+                imageView.setImageResource(R.drawable.systems_mac_os_128);
+            } else {
+                imageView.setImageResource(R.drawable.systems_linux_icon_128);
+            }
+
+            return headerView;
+
+        }
+
+        @Override
+        public long getHeaderId(int i) {
+
+            int id;
+
+            if (i < size)
+                id = 0;
+            else if (i >= size && i < size * 2)
+                id = 1;
+            else
+                id = 2;
+
+            return id;
+
+        }
+
+        @Override
+        public boolean isEnabled(int position) {
+            return false;
+        }
+
+    }
+
+    protected void queryData() {
+
+        // Instantiate arrays
+        roomNumber = new ArrayList<String>();
+        availWin = new ArrayList<String>();
+        availMac = new ArrayList<String>();
+        availLinux = new ArrayList<String>();
+
 		/*
 		 * Instantiate AsyncQuery object that runs query action 
 		 * in the background 
@@ -143,9 +273,9 @@ public class RoomActivity extends Activity {
 		 *  execute the background task with opp code taken in 
 		 *  as a parameter
 		 */
-		task.execute(opp_code);
-		
-		// While the permit has not been released, stay here
+        task.execute(oppCode);
+
+        // While the permit has not been released, stay here
 		while (!lock.tryAcquire());
 		
 		// Release the permit, done with Semaphore
@@ -159,9 +289,9 @@ public class RoomActivity extends Activity {
 	    super.onPause();
 	
 	    //closing transition animations
-	    overridePendingTransition(R.animator.activity_open_scale,R.animator.activity_close_translate);
-	    
-	}
+        //overridePendingTransition(R.animator.activity_open_scale,R.animator.activity_close_translate);
+
+    }
 	
 	/*
 	 * Test the network connection
@@ -264,29 +394,25 @@ public class RoomActivity extends Activity {
 		SoapObject rooms_response = (SoapObject) soap_in.getProperty(0);
 		SoapObject rooms_result = (SoapObject) rooms_response.getProperty(1);
 		final SoapObject document_element = (SoapObject) rooms_result.getProperty(0);
-	
-		// Set the text in the UI thread
-		runOnUiThread(new Runnable() {
-			@Override
-		    public void run() {
 
-				// Filter out the building name, available Windows, available Mac and available Linux 
-				if (document_element != null) {
-					for (int i = 0; i < document_element.getPropertyCount(); i++) {
-						// Room Number
-						text_view[i][0].setText(((SoapObject) document_element.getProperty(i)).getProperty(INDEX_ROOM_NUMBER).toString());
-						// Windows 
-						text_view[i][1].setText(((SoapObject) document_element.getProperty(i)).getProperty(INDEX_WINDOWS).toString());
-						// Macintosh
-						text_view[i][2].setText(((SoapObject) document_element.getProperty(i)).getProperty(INDEX_MACINTOSH).toString());
-						// Linux
-						text_view[i][3].setText(((SoapObject) document_element.getProperty(i)).getProperty(INDEX_LINUX).toString());
-					}
-				}
-		    	 
-		    }
-		});
-		
-	}
+        // Filter out the building name, available Windows, available Mac and available Linux
+        if (document_element != null) {
+
+            for (int i = 0; i < document_element.getPropertyCount(); i++) {
+
+                // Room Number
+                roomNumber.add(((SoapObject) document_element.getProperty(i)).getProperty(INDEX_ROOM_NUMBER).toString());
+                // Windows
+                availWin.add(((SoapObject) document_element.getProperty(i)).getProperty(INDEX_WINDOWS).toString());
+                // Macintosh
+                availMac.add(((SoapObject) document_element.getProperty(i)).getProperty(INDEX_MACINTOSH).toString());
+                // Linux
+                availLinux.add(((SoapObject) document_element.getProperty(i)).getProperty(INDEX_LINUX).toString());
+
+            }
+
+        }
+
+    }
 
 }

@@ -64,7 +64,7 @@ containing a value of this type.
 <tr><td><code>holo_light</code></td><td>1</td><td></td></tr>
 </table>
          */
-        public static final int appTheme=0x7f010011;
+        public static final int appTheme=0x7f010013;
         /**  Appearance of the buy button. Must be one of "classic", "grayscale" and "monochrome" 
          <p>Must be one of the following constant values.</p>
 <table>
@@ -77,7 +77,7 @@ containing a value of this type.
 <tr><td><code>monochrome</code></td><td>3</td><td></td></tr>
 </table>
          */
-        public static final int buyButtonAppearance=0x7f010018;
+        public static final int buyButtonAppearance=0x7f01001a;
         /** 
              Height of the buy button. This includes an 8dp padding (4dp on each side) used for
              pressed and focused states of the button. The value can be a specific height, e.g.
@@ -101,7 +101,7 @@ containing a value of this type.
 <tr><td><code>wrap_content</code></td><td>-2</td><td></td></tr>
 </table>
          */
-        public static final int buyButtonHeight=0x7f010015;
+        public static final int buyButtonHeight=0x7f010017;
         /**  Text on the buy button. Must be one of "buy_with_google", "buy_now" and "book_now" 
          <p>Must be one of the following constant values.</p>
 <table>
@@ -114,7 +114,7 @@ containing a value of this type.
 <tr><td><code>book_now</code></td><td>3</td><td></td></tr>
 </table>
          */
-        public static final int buyButtonText=0x7f010017;
+        public static final int buyButtonText=0x7f010019;
         /** 
              Width of the buy button. This includes an 8dp padding (4dp on each side) used for
              pressed and focused states of the button. The value can be a specific width, e.g.
@@ -138,7 +138,7 @@ containing a value of this type.
 <tr><td><code>wrap_content</code></td><td>-2</td><td></td></tr>
 </table>
          */
-        public static final int buyButtonWidth=0x7f010016;
+        public static final int buyButtonWidth=0x7f010018;
         /** <p>Must be a floating point value, such as "<code>1.2</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -191,7 +191,7 @@ containing a value of this type.
 <tr><td><code>strict_sandbox</code></td><td>2</td><td></td></tr>
 </table>
          */
-        public static final int environment=0x7f010012;
+        public static final int environment=0x7f010014;
         /**  Fragment mode 
          <p>Must be one of the following constant values.</p>
 <table>
@@ -203,12 +203,29 @@ containing a value of this type.
 <tr><td><code>selectionDetails</code></td><td>2</td><td></td></tr>
 </table>
          */
-        public static final int fragmentMode=0x7f010014;
+        public static final int fragmentMode=0x7f010016;
         /**  A style resource specifing attributes to customize the look and feel of WalletFragment 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int fragmentStyle=0x7f010013;
+        public static final int fragmentStyle=0x7f010015;
+        /**  StickyListHeaders attributes 
+         <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int hasStickyHeaders=0x7f010011;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int isDrawingListUnderStickyHeader=0x7f010012;
         /** <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
@@ -229,24 +246,24 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
-        public static final int maskedWalletDetailsBackground=0x7f01001b;
+        public static final int maskedWalletDetailsBackground=0x7f01001d;
         /**  "Change" button background in masked wallet details view 
          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
-        public static final int maskedWalletDetailsButtonBackground=0x7f01001d;
+        public static final int maskedWalletDetailsButtonBackground=0x7f01001f;
         /**  TextAppearance for the "Change" button in masked wallet details view 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int maskedWalletDetailsButtonTextAppearance=0x7f01001c;
+        public static final int maskedWalletDetailsButtonTextAppearance=0x7f01001e;
         /**  TextAppearance for headers describing masked wallet details 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int maskedWalletDetailsHeaderTextAppearance=0x7f01001a;
+        public static final int maskedWalletDetailsHeaderTextAppearance=0x7f01001c;
         /**  Type of the wallet logo image in masked wallet details view 
          <p>Must be one of the following constant values.</p>
 <table>
@@ -258,7 +275,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>monochrome</code></td><td>2</td><td></td></tr>
 </table>
          */
-        public static final int maskedWalletDetailsLogoImageType=0x7f01001f;
+        public static final int maskedWalletDetailsLogoImageType=0x7f010021;
         /**  Color of the Google Wallet logo text in masked wallet details view 
          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
@@ -268,12 +285,12 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int maskedWalletDetailsLogoTextColor=0x7f01001e;
+        public static final int maskedWalletDetailsLogoTextColor=0x7f010020;
         /**  TextAppearance for masked wallet details 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int maskedWalletDetailsTextAppearance=0x7f010019;
+        public static final int maskedWalletDetailsTextAppearance=0x7f01001b;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -412,160 +429,52 @@ containing a value of this type.
         public static final int powered_by_google_light=0x7f020023;
         public static final int psu_paw=0x7f020024;
         public static final int splash_screen=0x7f020025;
+        public static final int systems_linux_icon_128=0x7f020026;
+        public static final int systems_linux_icon_32=0x7f020027;
+        public static final int systems_linux_icon_64=0x7f020028;
+        public static final int systems_mac_os_128=0x7f020029;
+        public static final int systems_mac_os_64=0x7f02002a;
+        public static final int systems_mac_os_icon_32=0x7f02002b;
+        public static final int systems_windows_8_icon_128=0x7f02002c;
+        public static final int systems_windows_8_icon_32=0x7f02002d;
+        public static final int systems_windows_8_icon_64=0x7f02002e;
     }
     public static final class id {
-        public static final int RelativeLayout1=0x7f070015;
-        public static final int TableRow01=0x7f07001d;
-        public static final int TableRow02=0x7f070022;
-        public static final int TableRow03=0x7f070027;
-        public static final int TableRow04=0x7f07002c;
-        public static final int TableRow05=0x7f070031;
-        public static final int TableRow06=0x7f070036;
-        public static final int TableRow07=0x7f07003b;
-        public static final int TableRow08=0x7f070040;
-        public static final int TableRow09=0x7f070045;
-        public static final int TableRow10=0x7f07004a;
-        public static final int TableRow11=0x7f07004f;
-        public static final int TableRow12=0x7f070054;
-        public static final int TableRow13=0x7f070059;
-        public static final int TableRow14=0x7f07005e;
-        public static final int TableRow15=0x7f070063;
-        public static final int TableRow16=0x7f070068;
-        public static final int TableRow17=0x7f07006d;
-        public static final int TableRow18=0x7f070072;
-        public static final int TableRow19=0x7f070077;
-        public static final int TableRow20=0x7f07007c;
-        public static final int TableRow21=0x7f070081;
-        public static final int TableRow22=0x7f070086;
-        public static final int TableRow23=0x7f07008b;
-        public static final int TableRow24=0x7f070090;
-        public static final int TextView01_01=0x7f07001e;
-        public static final int TextView01_02=0x7f07001f;
-        public static final int TextView01_03=0x7f070020;
-        public static final int TextView01_04=0x7f070021;
-        public static final int TextView02_01=0x7f070023;
-        public static final int TextView02_02=0x7f070024;
-        public static final int TextView02_03=0x7f070025;
-        public static final int TextView02_04=0x7f070026;
-        public static final int TextView03_01=0x7f070028;
-        public static final int TextView03_02=0x7f070029;
-        public static final int TextView03_03=0x7f07002a;
-        public static final int TextView03_04=0x7f07002b;
-        public static final int TextView04_01=0x7f07002d;
-        public static final int TextView04_02=0x7f07002e;
-        public static final int TextView04_03=0x7f07002f;
-        public static final int TextView04_04=0x7f070030;
-        public static final int TextView05_01=0x7f070032;
-        public static final int TextView05_02=0x7f070033;
-        public static final int TextView05_03=0x7f070034;
-        public static final int TextView05_04=0x7f070035;
-        public static final int TextView06_01=0x7f070037;
-        public static final int TextView06_02=0x7f070038;
-        public static final int TextView06_03=0x7f070039;
-        public static final int TextView06_04=0x7f07003a;
-        public static final int TextView07_01=0x7f07003c;
-        public static final int TextView07_02=0x7f07003d;
-        public static final int TextView07_03=0x7f07003e;
-        public static final int TextView07_04=0x7f07003f;
-        public static final int TextView08_01=0x7f070041;
-        public static final int TextView08_02=0x7f070042;
-        public static final int TextView08_03=0x7f070043;
-        public static final int TextView08_04=0x7f070044;
-        public static final int TextView09_01=0x7f070046;
-        public static final int TextView09_02=0x7f070047;
-        public static final int TextView09_03=0x7f070048;
-        public static final int TextView09_04=0x7f070049;
-        public static final int TextView10_01=0x7f07004b;
-        public static final int TextView10_02=0x7f07004c;
-        public static final int TextView10_03=0x7f07004d;
-        public static final int TextView10_04=0x7f07004e;
-        public static final int TextView11_01=0x7f070050;
-        public static final int TextView11_02=0x7f070051;
-        public static final int TextView11_03=0x7f070052;
-        public static final int TextView11_04=0x7f070053;
-        public static final int TextView12_01=0x7f070055;
-        public static final int TextView12_02=0x7f070056;
-        public static final int TextView12_03=0x7f070057;
-        public static final int TextView12_04=0x7f070058;
-        public static final int TextView13_01=0x7f07005a;
-        public static final int TextView13_02=0x7f07005b;
-        public static final int TextView13_03=0x7f07005c;
-        public static final int TextView13_04=0x7f07005d;
-        public static final int TextView14_01=0x7f07005f;
-        public static final int TextView14_02=0x7f070060;
-        public static final int TextView14_03=0x7f070061;
-        public static final int TextView14_04=0x7f070062;
-        public static final int TextView15_01=0x7f070064;
-        public static final int TextView15_02=0x7f070065;
-        public static final int TextView15_03=0x7f070066;
-        public static final int TextView15_04=0x7f070067;
-        public static final int TextView16_01=0x7f070069;
-        public static final int TextView16_02=0x7f07006a;
-        public static final int TextView16_03=0x7f07006b;
-        public static final int TextView16_04=0x7f07006c;
-        public static final int TextView17_01=0x7f07006e;
-        public static final int TextView17_02=0x7f07006f;
-        public static final int TextView17_03=0x7f070070;
-        public static final int TextView17_04=0x7f070071;
-        public static final int TextView18_01=0x7f070073;
-        public static final int TextView18_02=0x7f070074;
-        public static final int TextView18_03=0x7f070075;
-        public static final int TextView18_04=0x7f070076;
-        public static final int TextView19_01=0x7f070078;
-        public static final int TextView19_02=0x7f070079;
-        public static final int TextView19_03=0x7f07007a;
-        public static final int TextView19_04=0x7f07007b;
-        public static final int TextView20_01=0x7f07007d;
-        public static final int TextView20_02=0x7f07007e;
-        public static final int TextView20_03=0x7f07007f;
-        public static final int TextView20_04=0x7f070080;
-        public static final int TextView21_01=0x7f070082;
-        public static final int TextView21_02=0x7f070083;
-        public static final int TextView21_03=0x7f070084;
-        public static final int TextView21_04=0x7f070085;
-        public static final int TextView22_01=0x7f070087;
-        public static final int TextView22_02=0x7f070088;
-        public static final int TextView22_03=0x7f070089;
-        public static final int TextView22_04=0x7f07008a;
-        public static final int TextView23_01=0x7f07008c;
-        public static final int TextView23_02=0x7f07008d;
-        public static final int TextView23_03=0x7f07008e;
-        public static final int TextView23_04=0x7f07008f;
-        public static final int TextView24_01=0x7f070091;
-        public static final int TextView24_02=0x7f070092;
-        public static final int TextView24_03=0x7f070093;
-        public static final int TextView24_04=0x7f070094;
-        public static final int about=0x7f070098;
-        public static final int action_settings=0x7f070097;
+        public static final int RelativeLayout1=0x7f070016;
+        public static final int about=0x7f070023;
+        public static final int action_settings=0x7f070022;
         public static final int book_now=0x7f070010;
-        public static final int button_refresh=0x7f070095;
         public static final int buyButton=0x7f07000a;
         public static final int buy_now=0x7f07000f;
         public static final int buy_with_google=0x7f07000e;
         public static final int classic=0x7f070011;
-        public static final int drawer_layout=0x7f070019;
+        public static final int drawer_layout=0x7f07001c;
         public static final int grayscale=0x7f070012;
         public static final int holo_dark=0x7f070005;
         public static final int holo_light=0x7f070006;
         public static final int hybrid=0x7f070004;
-        public static final int imageView=0x7f070096;
-        public static final int left_drawer=0x7f07001c;
-        public static final int map=0x7f07001b;
+        public static final int imageView=0x7f070015;
+        public static final int left_drawer=0x7f07001f;
+        public static final int listView=0x7f070021;
+        public static final int map=0x7f07001e;
         public static final int match_parent=0x7f07000c;
         public static final int monochrome=0x7f070013;
         public static final int none=0x7f070000;
         public static final int normal=0x7f070001;
         public static final int production=0x7f070007;
-        public static final int relative_layout=0x7f07001a;
+        public static final int relative_layout=0x7f07001d;
         public static final int sandbox=0x7f070008;
         public static final int satellite=0x7f070002;
         public static final int selectionDetails=0x7f07000b;
         public static final int strict_sandbox=0x7f070009;
+        public static final int swipe_container=0x7f070020;
         public static final int terrain=0x7f070003;
         public static final int textView=0x7f070014;
-        public static final int textView1=0x7f070017;
-        public static final int textView2=0x7f070016;
-        public static final int textView3=0x7f070018;
+        public static final int textView1=0x7f070018;
+        public static final int textView2=0x7f070017;
+        public static final int textView3=0x7f070019;
+        public static final int textViewAvail=0x7f07001b;
+        public static final int textViewRoomNumber=0x7f07001a;
         public static final int wrap_content=0x7f07000d;
     }
     public static final class integer {
@@ -573,10 +482,12 @@ containing a value of this type.
     }
     public static final class layout {
         public static final int drawer_list_item=0x7f030000;
-        public static final int help_activity=0x7f030001;
-        public static final int map_activity=0x7f030002;
-        public static final int room_activity=0x7f030003;
-        public static final int splash_activity=0x7f030004;
+        public static final int header_view=0x7f030001;
+        public static final int help_activity=0x7f030002;
+        public static final int item_view=0x7f030003;
+        public static final int map_activity=0x7f030004;
+        public static final int room_listview_activity=0x7f030005;
+        public static final int splash_activity=0x7f030006;
     }
     public static final class menu {
         public static final int list_room=0x7f0c0000;
@@ -983,6 +894,230 @@ containing a value of this type.
           @attr name com.bk.computeravailcheck:zOrderOnTop
         */
         public static final int MapAttrs_zOrderOnTop = 13;
+        /** Attributes that can be used with a StickyListHeadersListView.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #StickyListHeadersListView_android_cacheColorHint android:cacheColorHint}</code></td><td></td></tr>
+           <tr><td><code>{@link #StickyListHeadersListView_android_choiceMode android:choiceMode}</code></td><td></td></tr>
+           <tr><td><code>{@link #StickyListHeadersListView_android_clipToPadding android:clipToPadding}</code></td><td> View attributes </td></tr>
+           <tr><td><code>{@link #StickyListHeadersListView_android_divider android:divider}</code></td><td></td></tr>
+           <tr><td><code>{@link #StickyListHeadersListView_android_dividerHeight android:dividerHeight}</code></td><td></td></tr>
+           <tr><td><code>{@link #StickyListHeadersListView_android_drawSelectorOnTop android:drawSelectorOnTop}</code></td><td></td></tr>
+           <tr><td><code>{@link #StickyListHeadersListView_android_fadingEdgeLength android:fadingEdgeLength}</code></td><td> ListView attributes </td></tr>
+           <tr><td><code>{@link #StickyListHeadersListView_android_fastScrollAlwaysVisible android:fastScrollAlwaysVisible}</code></td><td></td></tr>
+           <tr><td><code>{@link #StickyListHeadersListView_android_fastScrollEnabled android:fastScrollEnabled}</code></td><td></td></tr>
+           <tr><td><code>{@link #StickyListHeadersListView_android_listSelector android:listSelector}</code></td><td></td></tr>
+           <tr><td><code>{@link #StickyListHeadersListView_android_overScrollMode android:overScrollMode}</code></td><td></td></tr>
+           <tr><td><code>{@link #StickyListHeadersListView_android_padding android:padding}</code></td><td></td></tr>
+           <tr><td><code>{@link #StickyListHeadersListView_android_paddingBottom android:paddingBottom}</code></td><td></td></tr>
+           <tr><td><code>{@link #StickyListHeadersListView_android_paddingLeft android:paddingLeft}</code></td><td></td></tr>
+           <tr><td><code>{@link #StickyListHeadersListView_android_paddingRight android:paddingRight}</code></td><td></td></tr>
+           <tr><td><code>{@link #StickyListHeadersListView_android_paddingTop android:paddingTop}</code></td><td></td></tr>
+           <tr><td><code>{@link #StickyListHeadersListView_android_requiresFadingEdge android:requiresFadingEdge}</code></td><td></td></tr>
+           <tr><td><code>{@link #StickyListHeadersListView_android_scrollbarStyle android:scrollbarStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #StickyListHeadersListView_android_scrollbars android:scrollbars}</code></td><td></td></tr>
+           <tr><td><code>{@link #StickyListHeadersListView_android_scrollingCache android:scrollingCache}</code></td><td></td></tr>
+           <tr><td><code>{@link #StickyListHeadersListView_android_transcriptMode android:transcriptMode}</code></td><td></td></tr>
+           <tr><td><code>{@link #StickyListHeadersListView_hasStickyHeaders com.bk.computeravailcheck:hasStickyHeaders}</code></td><td> StickyListHeaders attributes </td></tr>
+           <tr><td><code>{@link #StickyListHeadersListView_isDrawingListUnderStickyHeader com.bk.computeravailcheck:isDrawingListUnderStickyHeader}</code></td><td></td></tr>
+           </table>
+           @see #StickyListHeadersListView_android_cacheColorHint
+           @see #StickyListHeadersListView_android_choiceMode
+           @see #StickyListHeadersListView_android_clipToPadding
+           @see #StickyListHeadersListView_android_divider
+           @see #StickyListHeadersListView_android_dividerHeight
+           @see #StickyListHeadersListView_android_drawSelectorOnTop
+           @see #StickyListHeadersListView_android_fadingEdgeLength
+           @see #StickyListHeadersListView_android_fastScrollAlwaysVisible
+           @see #StickyListHeadersListView_android_fastScrollEnabled
+           @see #StickyListHeadersListView_android_listSelector
+           @see #StickyListHeadersListView_android_overScrollMode
+           @see #StickyListHeadersListView_android_padding
+           @see #StickyListHeadersListView_android_paddingBottom
+           @see #StickyListHeadersListView_android_paddingLeft
+           @see #StickyListHeadersListView_android_paddingRight
+           @see #StickyListHeadersListView_android_paddingTop
+           @see #StickyListHeadersListView_android_requiresFadingEdge
+           @see #StickyListHeadersListView_android_scrollbarStyle
+           @see #StickyListHeadersListView_android_scrollbars
+           @see #StickyListHeadersListView_android_scrollingCache
+           @see #StickyListHeadersListView_android_transcriptMode
+           @see #StickyListHeadersListView_hasStickyHeaders
+           @see #StickyListHeadersListView_isDrawingListUnderStickyHeader
+         */
+        public static final int[] StickyListHeadersListView = {
+            0x0101007f, 0x010100d5, 0x010100d6, 0x010100d7,
+            0x010100d8, 0x010100d9, 0x010100de, 0x010100e0,
+            0x010100eb, 0x010100fb, 0x010100fc, 0x010100fe,
+            0x01010100, 0x01010101, 0x01010129, 0x0101012a,
+            0x0101012b, 0x01010226, 0x010102c1, 0x01010335,
+            0x010103a5, 0x7f010011, 0x7f010012
+        };
+        /**
+          <p>This symbol is the offset where the {@link android.R.attr#cacheColorHint}
+          attribute's value can be found in the {@link #StickyListHeadersListView} array.
+          @attr name android:cacheColorHint
+        */
+        public static final int StickyListHeadersListView_android_cacheColorHint = 13;
+        /**
+          <p>This symbol is the offset where the {@link android.R.attr#choiceMode}
+          attribute's value can be found in the {@link #StickyListHeadersListView} array.
+          @attr name android:choiceMode
+        */
+        public static final int StickyListHeadersListView_android_choiceMode = 16;
+        /**
+          <p>
+          @attr description
+           View attributes 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#clipToPadding}.
+          @attr name android:clipToPadding
+        */
+        public static final int StickyListHeadersListView_android_clipToPadding = 8;
+        /**
+          <p>This symbol is the offset where the {@link android.R.attr#divider}
+          attribute's value can be found in the {@link #StickyListHeadersListView} array.
+          @attr name android:divider
+        */
+        public static final int StickyListHeadersListView_android_divider = 14;
+        /**
+          <p>This symbol is the offset where the {@link android.R.attr#dividerHeight}
+          attribute's value can be found in the {@link #StickyListHeadersListView} array.
+          @attr name android:dividerHeight
+        */
+        public static final int StickyListHeadersListView_android_dividerHeight = 15;
+        /**
+          <p>This symbol is the offset where the {@link android.R.attr#drawSelectorOnTop}
+          attribute's value can be found in the {@link #StickyListHeadersListView} array.
+          @attr name android:drawSelectorOnTop
+        */
+        public static final int StickyListHeadersListView_android_drawSelectorOnTop = 10;
+        /**
+          <p>
+          @attr description
+           ListView attributes 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#fadingEdgeLength}.
+          @attr name android:fadingEdgeLength
+        */
+        public static final int StickyListHeadersListView_android_fadingEdgeLength = 7;
+        /**
+          <p>This symbol is the offset where the {@link android.R.attr#fastScrollAlwaysVisible}
+          attribute's value can be found in the {@link #StickyListHeadersListView} array.
+          @attr name android:fastScrollAlwaysVisible
+        */
+        public static final int StickyListHeadersListView_android_fastScrollAlwaysVisible = 19;
+        /**
+          <p>This symbol is the offset where the {@link android.R.attr#fastScrollEnabled}
+          attribute's value can be found in the {@link #StickyListHeadersListView} array.
+          @attr name android:fastScrollEnabled
+        */
+        public static final int StickyListHeadersListView_android_fastScrollEnabled = 17;
+        /**
+          <p>This symbol is the offset where the {@link android.R.attr#listSelector}
+          attribute's value can be found in the {@link #StickyListHeadersListView} array.
+          @attr name android:listSelector
+        */
+        public static final int StickyListHeadersListView_android_listSelector = 9;
+        /**
+          <p>This symbol is the offset where the {@link android.R.attr#overScrollMode}
+          attribute's value can be found in the {@link #StickyListHeadersListView} array.
+          @attr name android:overScrollMode
+        */
+        public static final int StickyListHeadersListView_android_overScrollMode = 18;
+        /**
+          <p>This symbol is the offset where the {@link android.R.attr#padding}
+          attribute's value can be found in the {@link #StickyListHeadersListView} array.
+          @attr name android:padding
+        */
+        public static final int StickyListHeadersListView_android_padding = 1;
+        /**
+          <p>This symbol is the offset where the {@link android.R.attr#paddingBottom}
+          attribute's value can be found in the {@link #StickyListHeadersListView} array.
+          @attr name android:paddingBottom
+        */
+        public static final int StickyListHeadersListView_android_paddingBottom = 5;
+        /**
+          <p>This symbol is the offset where the {@link android.R.attr#paddingLeft}
+          attribute's value can be found in the {@link #StickyListHeadersListView} array.
+          @attr name android:paddingLeft
+        */
+        public static final int StickyListHeadersListView_android_paddingLeft = 2;
+        /**
+          <p>This symbol is the offset where the {@link android.R.attr#paddingRight}
+          attribute's value can be found in the {@link #StickyListHeadersListView} array.
+          @attr name android:paddingRight
+        */
+        public static final int StickyListHeadersListView_android_paddingRight = 4;
+        /**
+          <p>This symbol is the offset where the {@link android.R.attr#paddingTop}
+          attribute's value can be found in the {@link #StickyListHeadersListView} array.
+          @attr name android:paddingTop
+        */
+        public static final int StickyListHeadersListView_android_paddingTop = 3;
+        /**
+          <p>This symbol is the offset where the {@link android.R.attr#requiresFadingEdge}
+          attribute's value can be found in the {@link #StickyListHeadersListView} array.
+          @attr name android:requiresFadingEdge
+        */
+        public static final int StickyListHeadersListView_android_requiresFadingEdge = 20;
+        /**
+          <p>This symbol is the offset where the {@link android.R.attr#scrollbarStyle}
+          attribute's value can be found in the {@link #StickyListHeadersListView} array.
+          @attr name android:scrollbarStyle
+        */
+        public static final int StickyListHeadersListView_android_scrollbarStyle = 0;
+        /**
+          <p>This symbol is the offset where the {@link android.R.attr#scrollbars}
+          attribute's value can be found in the {@link #StickyListHeadersListView} array.
+          @attr name android:scrollbars
+        */
+        public static final int StickyListHeadersListView_android_scrollbars = 6;
+        /**
+          <p>This symbol is the offset where the {@link android.R.attr#scrollingCache}
+          attribute's value can be found in the {@link #StickyListHeadersListView} array.
+          @attr name android:scrollingCache
+        */
+        public static final int StickyListHeadersListView_android_scrollingCache = 11;
+        /**
+          <p>This symbol is the offset where the {@link android.R.attr#transcriptMode}
+          attribute's value can be found in the {@link #StickyListHeadersListView} array.
+          @attr name android:transcriptMode
+        */
+        public static final int StickyListHeadersListView_android_transcriptMode = 12;
+        /**
+          <p>
+          @attr description
+           StickyListHeaders attributes 
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.bk.computeravailcheck:hasStickyHeaders
+        */
+        public static final int StickyListHeadersListView_hasStickyHeaders = 21;
+        /**
+          <p>This symbol is the offset where the {@link com.bk.computeravailcheck.R.attr#isDrawingListUnderStickyHeader}
+          attribute's value can be found in the {@link #StickyListHeadersListView} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.bk.computeravailcheck:isDrawingListUnderStickyHeader
+        */
+        public static final int StickyListHeadersListView_isDrawingListUnderStickyHeader = 22;
         /** Attributes that can be used with a WalletFragmentOptions.
            <p>Includes the following attributes:</p>
            <table>
@@ -1000,7 +1135,7 @@ containing a value of this type.
            @see #WalletFragmentOptions_fragmentStyle
          */
         public static final int[] WalletFragmentOptions = {
-            0x7f010011, 0x7f010012, 0x7f010013, 0x7f010014
+            0x7f010013, 0x7f010014, 0x7f010015, 0x7f010016
         };
         /**
           <p>
@@ -1105,9 +1240,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            @see #WalletFragmentStyle_maskedWalletDetailsTextAppearance
          */
         public static final int[] WalletFragmentStyle = {
-            0x7f010015, 0x7f010016, 0x7f010017, 0x7f010018,
-            0x7f010019, 0x7f01001a, 0x7f01001b, 0x7f01001c,
-            0x7f01001d, 0x7f01001e, 0x7f01001f
+            0x7f010017, 0x7f010018, 0x7f010019, 0x7f01001a,
+            0x7f01001b, 0x7f01001c, 0x7f01001d, 0x7f01001e,
+            0x7f01001f, 0x7f010020, 0x7f010021
         };
         /**
           <p>
