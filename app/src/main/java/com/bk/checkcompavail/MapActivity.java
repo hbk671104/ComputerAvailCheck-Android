@@ -3,6 +3,7 @@ package com.bk.checkcompavail;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -10,7 +11,6 @@ import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -40,7 +40,6 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.concurrent.Semaphore;
 
 public class MapActivity extends Activity {
 
@@ -54,7 +53,7 @@ public class MapActivity extends Activity {
     final private ArrayList<String> OPP_CODE = new ArrayList<String>();
 
     // Name of each building
-    final private ArrayList<String> NAME_OF_EACH_BUILDING = new ArrayList<String>();
+    final private ArrayList<String> NAME_OF_EACH_BUILDING = new ArrayList<>();
 
     // total number of rooms in each building
     final private ArrayList<String> BUILDING_TOTAL_ROOMS = new ArrayList<String>();
@@ -112,7 +111,6 @@ public class MapActivity extends Activity {
             new LatLng(40.795967, -77.864255)};
 
     private String[][] query_result;
-    private Semaphore lock;
 
     // Map Object
     private GoogleMap map;
@@ -136,43 +134,18 @@ public class MapActivity extends Activity {
         setContentView(R.layout.map_activity);
         setTitle("Map View");
 
-        // Instantiate the semaphore
-        lock = new Semaphore(1);
-
         // Add Google Map on the MainActivity
         addGoogleMap();
 
-        // Query data in a separate thread
-        queryDataInSeparateThread();
-
-        // Add drawer
-        addDrawer();
+        // Add navigation bar
+        addNavigationBar();
 
         // Init Pools
         initBuildingNamePool();
         initMarkerPool();
 
-        // Add navigation bar
-        addNavigationBar();
-
-    }
-
-    private void queryDataInSeparateThread() {
-
         // Create a new thread that runs the query in the background
-        AsyncQuery task = new AsyncQuery();
-        try {
-            // Acquire a permit
-            lock.acquire();
-        } catch (InterruptedException e1) {
-            e1.printStackTrace();
-        }
-
-        // Start the new thread
-        task.execute();
-
-        // Add all the markers of buildings after the permit is released
-        while (!lock.tryAcquire()) ;
+        new SoapTask().execute();
 
     }
 
@@ -240,7 +213,7 @@ public class MapActivity extends Activity {
         drawer_list = (ListView) findViewById(R.id.left_drawer);
 
         // add adapter to the drawer list
-        drawer_list.setAdapter(new ArrayAdapter<String>(this, R.layout.drawer_list_item, NAME_OF_EACH_BUILDING));
+        drawer_list.setAdapter(new ArrayAdapter<>(this, R.layout.drawer_list_item, NAME_OF_EACH_BUILDING));
 
         // Add drawer on item click listener
         drawer_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -402,25 +375,20 @@ public class MapActivity extends Activity {
     /*
      * Doing the data query job in a new thread
      */
-    private class AsyncQuery extends AsyncTask<Void, Void, Void> {
+    private class SoapTask extends AsyncTask<Void, Void, Void> {
 
+        private ProgressDialog progressDialog;
         @Override
         protected void onPreExecute() {
-
-            Log.i("PreExecute", "onPreExecute");
-
+            super.onPreExecute();
+            progressDialog = ProgressDialog.show(MapActivity.this, "Loading...", "Please wait...");
         }
 
         @Override
         protected Void doInBackground(Void... params) {
 
-            Log.i("Background", "doInBackground");
-
             // Doing the query in the background
             queryBuildingResult();
-
-            // Release the permit after the query result has been all set to the String array
-            lock.release();
 
             return null;
 
@@ -429,9 +397,12 @@ public class MapActivity extends Activity {
         @Override
         protected void onPostExecute(Void result) {
 
-            Log.i("PostExecute", "onPostExecute");
+            progressDialog.dismiss();
             initMarker();
             addMarker();
+
+            // Add drawer
+            addDrawer();
 
         }
 
@@ -628,9 +599,6 @@ public class MapActivity extends Activity {
 
         // Set marker color
         setMarkerColor();
-
-        // release the permit
-        lock.release();
 
     }
 

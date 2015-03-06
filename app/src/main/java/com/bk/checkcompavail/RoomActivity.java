@@ -315,23 +315,11 @@ public class RoomActivity extends Activity {
 	 * Doing the query job in a new thread
 	 */
 	private class AsyncQuery extends AsyncTask<String, Void, Void> {
-	    
-		//ProgressDialog progress_dialog;
-		
-	    @Override
-	    protected void onPreExecute() {
-	   	 		
-	    		//progress_dialog = ProgressDialog.show(RoomActivity.this, "haha", "Downloading...");
-	        Log.i("PreExecute", "onPreExecute");
-	        
-	    }
 		
 		@Override
 	    protected Void doInBackground(String... params) {
-			
-	        Log.i("Background", "doInBackground");   
-	        
-	        // Doing the query in the background
+
+            // Doing the query in the background
 	        queryRoomResult(params[0]);
 	        
 	        // Release the permit after the query result has been all set to the String array
@@ -343,12 +331,9 @@ public class RoomActivity extends Activity {
 	
 	    @Override
 	    protected void onPostExecute(Void result) {
-	    	
-	    		//Toast.makeText(RoomActivity.this, "Refresh Successfully!", Toast.LENGTH_SHORT).show();
-	    		//progress_dialog.dismiss();
-	        Log.i("PostExecute", "onPostExecute"); 
-	        
-	    }
+
+
+        }
 	    
 	}
 	

@@ -4,7 +4,7 @@
     android:versionCode="27"
     android:versionName="3.0.2">
 
-<uses-sdk
+    <uses-sdk
         android:minSdkVersion="14"
         android:targetSdkVersion="20"></uses-sdk>
 
@@ -28,27 +28,19 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
 
-        <!-- <uses-library android:name="com.google.android.maps" /> -->
-
         <activity
-            android:name="com.bk.checkcompavail.SplashActivity"
+            android:name="com.bk.checkcompavail.MapActivity"
             android:screenOrientation="portrait"
             android:hardwareAccelerated="true"
-            android:theme="@android:style/Theme.Holo.Light.NoActionBar">
+            android:theme="@android:style/Theme.Holo">
 
-            <intent-filter>
+        <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
         </activity>
-
-        <activity
-            android:name="com.bk.checkcompavail.MapActivity"
-            android:screenOrientation="portrait"
-            android:hardwareAccelerated="true"
-            android:theme="@android:style/Theme.Holo"></activity>
 
         <activity
             android:name="com.bk.checkcompavail.RoomActivity"
