@@ -48,9 +48,6 @@ public class MapActivity extends Activity {
     final private int INDEX_MACINTOSH = 6;
     final private int INDEX_LINUX = 7;
 
-    // Don't forget to change this!!! When god damn building changes!!!
-    final private int NUMBER_OF_BUILDINGS = 41;
-
     final private int NUMBER_OF_USEFUL_ATTRIBUTES = 3;
 
     // opp code
@@ -215,7 +212,7 @@ public class MapActivity extends Activity {
                 intent.setClass(MapActivity.this, RoomActivity.class);
 
 				/*
-				 *  Instantiate an Bundle object that passes the Opp Code to
+                 *  Instantiate an Bundle object that passes the Opp Code to
 				 *  RoomActivity as the parameter for parsing room detail data
 				 */
                 Bundle bundle = new Bundle();
