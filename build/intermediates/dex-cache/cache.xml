@@ -2,56 +2,20 @@
 <items version="2">
 
     <item
-        jar="/Users/BK/AndroidStudioProject/CheckCompAvail/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.0/libs/internal_impl-21.0.0.jar"
-        jumboMode="false" revision="20.0.0" sha1="1609e6d42d0480b0f4188e2c29f75388fa12a8f0">
+        jar="/Users/BK/AndroidStudioProject/CheckCompAvail/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
+        jumboMode="false" revision="21.1.2" sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
         <dex
-            dex="/Users/BK/AndroidStudioProject/CheckCompAvail/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.0-bf3fb233910f63d873f2f42bf8b4dce05790f3e4.jar" />
+            dex="/Users/BK/AndroidStudioProject/CheckCompAvail/app/build/intermediates/pre-dexed/debug/classes-bc944199ce3dde5d8677e49640a0403cc92beb05.jar" />
     </item>
     <item
-        jar="/Users/BK/AndroidStudioProject/CheckCompAvail/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.0/classes.jar"
-        jumboMode="false" revision="21.1.2" sha1="686344a780033e4ba22b926cd225f8d4941247e6">
+        jar="/Users/BK/Downloads/Development/Dependency/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
+        jumboMode="false" revision="21.1.2" sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
         <dex
-            dex="/Users/BK/AndroidStudioProject/CheckCompAvail/app/build/intermediates/pre-dexed/debug/classes-1a551652667cf194d220f072696eb0088ce9d5fd.jar" />
-    </item>
-    <item
-        jar="/Users/BK/AndroidStudioProject/CheckCompAvail/app/libs/ksoap2-android-assembly-3.4.0-jar-with-dependencies.jar"
-        jumboMode="false" revision="21.1.2" sha1="45fbaab416fb5cff992e662d1f7a83786f084fc3">
-        <dex
-            dex="/Users/BK/AndroidStudioProject/CheckCompAvail/app/build/intermediates/pre-dexed/debug/ksoap2-android-assembly-3.4.0-jar-with-dependencies-33cf4536a5ba7c364367e124056b3db80ec1f513.jar" />
-    </item>
-    <item
-        jar="/Users/BK/AndroidStudioProject/CheckCompAvail/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.0/libs/internal_impl-21.0.0.jar"
-        jumboMode="false" revision="21.1.2" sha1="1609e6d42d0480b0f4188e2c29f75388fa12a8f0">
-        <dex
-            dex="/Users/BK/AndroidStudioProject/CheckCompAvail/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.0-bf3fb233910f63d873f2f42bf8b4dce05790f3e4.jar" />
-    </item>
-    <item
-        jar="/Users/BK/AndroidStudioProject/CheckCompAvail/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.0/classes.jar"
-        jumboMode="false" revision="20.0.0" sha1="686344a780033e4ba22b926cd225f8d4941247e6">
-        <dex
-            dex="/Users/BK/AndroidStudioProject/CheckCompAvail/app/build/intermediates/pre-dexed/debug/classes-1a551652667cf194d220f072696eb0088ce9d5fd.jar" />
+            dex="/Users/BK/AndroidStudioProject/CheckCompAvail/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-aebf18f1c7dacb4e4cace590b2c7fd144e1f3014.jar" />
     </item>
     <item
         jar="/Users/BK/AndroidStudioProject/CheckCompAvail/app/build/intermediates/exploded-aar/se.emilsjolander/stickylistheaders/2.5.2/classes.jar"
         jumboMode="false" revision="20.0.0" sha1="9f0808c3f609d8fe93018a8108d5a3d7c9cb5458">
-        <dex
-            dex="/Users/BK/AndroidStudioProject/CheckCompAvail/app/build/intermediates/pre-dexed/debug/classes-266aadec91210915396b48919ad36990d1d1dca9.jar" />
-    </item>
-    <item
-        jar="/Users/BK/Downloads/Development/Dependency/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.0/support-annotations-21.0.0.jar"
-        jumboMode="false" revision="21.1.2" sha1="1a578b9607b36266c63d43a4fa0ab5664dbe911e">
-        <dex
-            dex="/Users/BK/AndroidStudioProject/CheckCompAvail/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.0-91065aa33b360161f542953ee5d08b82073dad7b.jar" />
-    </item>
-    <item
-        jar="/Users/BK/Downloads/Development/Dependency/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.0/support-annotations-21.0.0.jar"
-        jumboMode="false" revision="20.0.0" sha1="1a578b9607b36266c63d43a4fa0ab5664dbe911e">
-        <dex
-            dex="/Users/BK/AndroidStudioProject/CheckCompAvail/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.0-91065aa33b360161f542953ee5d08b82073dad7b.jar" />
-    </item>
-    <item
-        jar="/Users/BK/AndroidStudioProject/CheckCompAvail/app/build/intermediates/exploded-aar/se.emilsjolander/stickylistheaders/2.5.2/classes.jar"
-        jumboMode="false" revision="21.1.2" sha1="9f0808c3f609d8fe93018a8108d5a3d7c9cb5458">
         <dex
             dex="/Users/BK/AndroidStudioProject/CheckCompAvail/app/build/intermediates/pre-dexed/debug/classes-266aadec91210915396b48919ad36990d1d1dca9.jar" />
     </item>
@@ -62,10 +26,28 @@
             dex="/Users/BK/AndroidStudioProject/CheckCompAvail/app/build/intermediates/pre-dexed/debug/classes-b51388b64b9352dbfd38618de2ee08e5a17b6b39.jar" />
     </item>
     <item
+        jar="/Users/BK/AndroidStudioProject/CheckCompAvail/app/libs/ksoap2-android-assembly-3.4.0-jar-with-dependencies.jar"
+        jumboMode="false" revision="21.1.2" sha1="45fbaab416fb5cff992e662d1f7a83786f084fc3">
+        <dex
+            dex="/Users/BK/AndroidStudioProject/CheckCompAvail/app/build/intermediates/pre-dexed/debug/ksoap2-android-assembly-3.4.0-jar-with-dependencies-33cf4536a5ba7c364367e124056b3db80ec1f513.jar" />
+    </item>
+    <item
+        jar="/Users/BK/AndroidStudioProject/CheckCompAvail/app/build/intermediates/exploded-aar/se.emilsjolander/stickylistheaders/2.5.2/classes.jar"
+        jumboMode="false" revision="21.1.2" sha1="9f0808c3f609d8fe93018a8108d5a3d7c9cb5458">
+        <dex
+            dex="/Users/BK/AndroidStudioProject/CheckCompAvail/app/build/intermediates/pre-dexed/debug/classes-266aadec91210915396b48919ad36990d1d1dca9.jar" />
+    </item>
+    <item
         jar="/Users/BK/AndroidStudioProject/CheckCompAvail/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/classes.jar"
         jumboMode="false" revision="20.0.0" sha1="dd9247ea0fabe8ee479638c4b4a23e93752be256">
         <dex
             dex="/Users/BK/AndroidStudioProject/CheckCompAvail/app/build/intermediates/pre-dexed/debug/classes-b51388b64b9352dbfd38618de2ee08e5a17b6b39.jar" />
+    </item>
+    <item
+        jar="/Users/BK/AndroidStudioProject/CheckCompAvail/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
+        jumboMode="false" revision="21.1.2" sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex
+            dex="/Users/BK/AndroidStudioProject/CheckCompAvail/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-14cbefeaf36807df3688e3d447c2bef7d2ddc5fd.jar" />
     </item>
 
 </items>

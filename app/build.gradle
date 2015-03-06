@@ -20,7 +20,7 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:20.+'
+    compile 'com.android.support:support-v4:21.+'
     compile 'com.google.android.gms:play-services:6.+'
     compile 'se.emilsjolander:stickylistheaders:2.+'
     compile files('libs/ksoap2-android-assembly-3.4.0-jar-with-dependencies.jar')
