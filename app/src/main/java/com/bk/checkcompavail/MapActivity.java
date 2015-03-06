@@ -396,7 +396,9 @@ public class MapActivity extends Activity {
 
         @Override
         protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
 
+            // Dismiss progress dialog
             progressDialog.dismiss();
             initMarker();
             addMarker();
