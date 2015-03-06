@@ -132,7 +132,6 @@ public class MapActivity extends Activity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.map_activity);
-        setTitle("Map View");
 
         // Add Google Map on the MainActivity
         addGoogleMap();
@@ -378,6 +377,7 @@ public class MapActivity extends Activity {
     private class SoapTask extends AsyncTask<Void, Void, Void> {
 
         private ProgressDialog progressDialog;
+
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
