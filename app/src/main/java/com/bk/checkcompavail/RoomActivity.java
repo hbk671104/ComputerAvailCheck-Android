@@ -122,6 +122,7 @@ public class RoomActivity extends Activity {
         // Instantiate itemlist
         itemList = new ArrayList<ListItem>();
 
+        itemList.add(new ListItem("Room Number", "Available"));
         for (int i = 0; i < roomNumber.size(); i++) {
 
             String room = roomNumber.get(i);
@@ -131,6 +132,7 @@ public class RoomActivity extends Activity {
 
         }
 
+        itemList.add(new ListItem("Room Number", "Available"));
         for (int i = 0; i < roomNumber.size(); i++) {
 
             String room = roomNumber.get(i);
@@ -140,6 +142,7 @@ public class RoomActivity extends Activity {
 
         }
 
+        itemList.add(new ListItem("Room Number", "Available"));
         for (int i = 0; i < roomNumber.size(); i++) {
 
             String room = roomNumber.get(i);

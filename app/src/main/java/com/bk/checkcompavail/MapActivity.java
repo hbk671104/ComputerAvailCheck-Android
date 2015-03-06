@@ -69,7 +69,9 @@ public class MapActivity extends Activity {
     final private LatLng CENTER = new LatLng(40.800509, -77.864252);
 
     // The geo-location data of all the buildings (latitude and longitude)
-    final private LatLng[] BUILDINGS_LOC = new LatLng[]{new LatLng(40.803636, -77.863764),
+    final private LatLng[] BUILDINGS_LOC = new LatLng[]{
+            new LatLng(40.803636, -77.863764),
+            new LatLng(40.800507, -77.857044),
             new LatLng(40.799136, -77.861684),
             new LatLng(40.801270, -77.854822),
             new LatLng(40.809093, -77.855406),
@@ -543,6 +545,7 @@ public class MapActivity extends Activity {
     public void initBuildingNamePool() {
 
         buildingNamePool.add("AgSci");
+        buildingNamePool.add("Beaver");
         buildingNamePool.add("Boucke");
         buildingNamePool.add("Brill Hall");
         buildingNamePool.add("Bryce Jordan Center");
