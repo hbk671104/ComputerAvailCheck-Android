@@ -561,21 +561,14 @@ public class MapActivity extends Activity {
     public void initMarker() {
 
         for (int i = 0; i < NAME_OF_EACH_BUILDING.size(); i++) {
-
             String name = NAME_OF_EACH_BUILDING.get(i);
-
             for (int j = 0; j < buildingNamePool.size(); j++) {
-
                 if (name.equals(buildingNamePool.get(j))) {
-
                     // If matches, add marker to the array
                     markerOptionArray.add(markerOptionPool.get(j));
                     break;
-
                 }
-
             }
-
         }
 
     }
